@@ -1,12 +1,17 @@
 import nx from '@nx/eslint-plugin';
+import angular from 'angular-eslint';
+import { defineConfig } from 'eslint/config';
 import baseConfig from '../../eslint.config.mjs';
 
-export default [
+export default defineConfig(
   ...baseConfig,
   ...nx.configs['flat/angular'],
   ...nx.configs['flat/angular-template'],
   {
     files: ['**/*.ts'],
+    extends: [
+      angular.configs.tsRecommended,
+    ],
     rules: {
       '@angular-eslint/directive-selector': [
         'error',
@@ -28,7 +33,9 @@ export default [
   },
   {
     files: ['**/*.html'],
-    // Override or add rules here
-    rules: {},
+    extends: [
+      angular.configs.templateRecommended,
+      angular.configs.templateAccessibility,
+    ],
   },
-];
+);
