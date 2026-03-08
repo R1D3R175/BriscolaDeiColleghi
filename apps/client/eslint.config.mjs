@@ -1,9 +1,10 @@
 import nx from '@nx/eslint-plugin';
 import angular from 'angular-eslint';
-import { defineConfig } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import baseConfig from '../../eslint.config.mjs';
 
 export default defineConfig(
+  globalIgnores(['!.storybook'], 'Include Storybook Directory'),
   ...baseConfig,
   ...nx.configs['flat/angular'],
   ...nx.configs['flat/angular-template'],
