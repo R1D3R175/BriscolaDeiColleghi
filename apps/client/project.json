@@ -20,7 +20,10 @@
             "input": "apps/client/public"
           }
         ],
-        "styles": ["apps/client/src/styles.scss"]
+        "styles": [
+          "apps/client/src/app/styles/theme.scss",
+          "apps/client/src/app/styles/_fonts.scss"
+        ]
       },
       "configurations": {
         "production": {
