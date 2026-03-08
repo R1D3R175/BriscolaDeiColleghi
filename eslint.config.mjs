@@ -1,6 +1,6 @@
 import eslint from '@eslint/js';
 import nx from '@nx/eslint-plugin';
-import { defineConfig } from "eslint/config";
+import { defineConfig } from 'eslint/config';
 import prettierRecommended from 'eslint-plugin-prettier/recommended';
 import importPlugin from 'eslint-plugin-import';
 import unicorn from 'eslint-plugin-unicorn';
@@ -80,7 +80,11 @@ export default defineConfig(
             },
             {
               sourceTag: 'type:feature',
-              onlyDependOnLibsWithTags: ['type:data-access', 'type:ui', 'type:utility'],
+              onlyDependOnLibsWithTags: [
+                'type:data-access',
+                'type:ui',
+                'type:utility',
+              ],
             },
             {
               sourceTag: 'type:ui',
@@ -106,7 +110,10 @@ export default defineConfig(
     settings: {
       'import/resolver': {
         typescript: {
-          project: '**/{ts,js}config.json',
+          project: [
+            '**/{ts,js}config.json',
+            'apps/client/.storybook/tsconfig.json',
+          ],
         },
       },
     },
@@ -114,6 +121,6 @@ export default defineConfig(
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/prefer-readonly': 'error',
       ...importRules,
-    }
+    },
   },
 );

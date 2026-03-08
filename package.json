@@ -25,11 +25,13 @@
     "@nx/nest": "22.5.4",
     "@nx/node": "22.5.4",
     "@nx/playwright": "22.5.4",
+    "@nx/storybook": "22.5.4",
     "@nx/web": "22.5.4",
     "@nx/webpack": "22.5.4",
     "@nx/workspace": "22.5.4",
     "@playwright/test": "^1.36.0",
     "@schematics/angular": "~21.1.0",
+    "@storybook/angular": "10.2.16",
     "@swc-node/register": "~1.11.1",
     "@swc/core": "~1.15.5",
     "@swc/helpers": "~0.5.18",
@@ -50,11 +52,14 @@
     "jsdom": "^27.1.0",
     "nx": "22.5.4",
     "prettier": "~3.6.2",
+    "storybook": "10.2.16",
+    "ts-node": "10.9.1",
     "tslib": "^2.3.0",
     "typescript": "~5.9.2",
     "typescript-eslint": "^8.40.0",
     "vitest": "^4.0.8",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "eslint-plugin-storybook": "10.2.16"
   },
   "config": {
     "commitizen": {
