@@ -34,6 +34,15 @@
     },
     "build-storybook": {
       "cache": true
+    },
+    "@nx/angular:ng-packagr-lite": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "@nx/angular:unit-test": {
+      "cache": true,
+      "inputs": ["default", "^production"]
     }
   },
   "plugins": [
@@ -81,6 +90,12 @@
     },
     "@nx/angular:component": {
       "style": "scss",
+      "changeDetection": "OnPush"
+    },
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "style": "scss",
+      "unitTestRunner": "vitest-angular",
       "changeDetection": "OnPush"
     }
   }

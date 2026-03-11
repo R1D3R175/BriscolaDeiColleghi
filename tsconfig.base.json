@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@briscola-dei-colleghi/navbar": ["libs/shared/ui/navbar/src/index.ts"],
       "@briscola-dei-colleghi/eslint": ["libs/internal/eslint/src/index.js"]
     }
   },
