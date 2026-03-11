@@ -1,0 +1,9 @@
+{
+  "name": "@briscola-dei-colleghi/eslint",
+  "type": "module",
+  "private": true,
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  }
+}

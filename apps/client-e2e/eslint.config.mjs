@@ -1,12 +1,8 @@
+import { baseConfig } from '@briscola-dei-colleghi/eslint';
+import { defineConfig } from 'eslint/config';
 import playwright from 'eslint-plugin-playwright';
-import baseConfig from '../../eslint.config.mjs';
 
-export default [
-  playwright.configs['flat/recommended'],
+export default defineConfig([
   ...baseConfig,
-  {
-    files: ['**/*.ts', '**/*.js'],
-    // Override or add rules here
-    rules: {},
-  },
-];
+  playwright.configs['flat/recommended'],
+]);
