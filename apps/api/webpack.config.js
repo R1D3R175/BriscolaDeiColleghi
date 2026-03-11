@@ -1,9 +1,9 @@
-const { NxAppWebpackPlugin } = require('@nx/webpack/app-plugin');
-const { join } = require('path');
+import path from 'node:path';
+import { NxAppWebpackPlugin } from '@nx/webpack/app-plugin.js';
 
-module.exports = {
+export default {
   output: {
-    path: join(__dirname, '../../dist/apps/api'),
+    path: path.join(import.meta.dirname, '../../dist/apps/api'),
     clean: true,
     ...(process.env.NODE_ENV !== 'production' && {
       devtoolModuleFilenameTemplate: '[absolute-resource-path]',
