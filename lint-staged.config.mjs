@@ -1,3 +1,3 @@
 export default {
-  "*": "nx affected --target=lint --files"
-}
+  '*': 'nx affected --target=lint --files',
+};
