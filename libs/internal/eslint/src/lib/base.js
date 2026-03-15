@@ -1,45 +1,46 @@
 import eslint from '@eslint/js';
 import nx from '@nx/eslint-plugin';
-import tsParser from '@typescript-eslint/parser';
-import { defineConfig } from 'eslint/config';
-import { importX } from 'eslint-plugin-import-x';
-import prettierRecommended from 'eslint-plugin-prettier/recommended';
+import stylistic from '@stylistic/eslint-plugin';
+import {defineConfig} from 'eslint/config';
+import xoSpaceConfig from 'eslint-config-xo-space';
+import {importX} from 'eslint-plugin-import-x';
+import prettierRecommendedConfig from 'eslint-plugin-prettier/recommended';
 import unicorn from 'eslint-plugin-unicorn';
+import * as jsoncParser from 'jsonc-eslint-parser';
 import tseslint from 'typescript-eslint';
 
 export default defineConfig(
-  ...nx.configs['flat/base'],
-  ...nx.configs['flat/javascript'],
-  ...nx.configs['flat/typescript'],
+  nx.configs['flat/base'],
+  nx.configs['flat/javascript'],
+  nx.configs['flat/typescript'],
+  eslint.configs.recommended,
+  tseslint.configs.recommended,
   {
-    files: ['**/*.json'],
-    rules: {
-      '@nx/dependency-checks': [
-        'error',
-        {
-          ignoredFiles: ['{projectRoot}/eslint.config.mjs'],
-        },
-      ],
-    },
+    files: ['**/*.{ts,cts,mts}'],
+    extends: [tseslint.configs.recommendedTypeChecked],
     languageOptions: {
-      parser: await import('jsonc-eslint-parser'),
+      parserOptions: {
+        projectService: true,
+      },
     },
   },
+  xoSpaceConfig(),
+  prettierRecommendedConfig,
+  unicorn.configs.all,
+  importX.flatConfigs.recommended,
+  importX.flatConfigs.typescript,
   {
-    files: ['**/*.{m,}js', '**/*.ts'],
-    extends: [
-      eslint.configs.recommended,
-      ...tseslint.configs.recommended,
-      importX.flatConfigs.recommended,
-      prettierRecommended,
-      unicorn.configs.all,
-    ],
-    languageOptions: {
-      parser: tsParser,
-      ecmaVersion: 'latest',
-      sourceType: 'module',
+    plugins: {
+      '@stylistic': stylistic,
     },
     rules: {
+      'no-unused-vars': [
+        'error',
+        {
+          args: 'none',
+        },
+      ],
+      'no-void': 'off',
       '@nx/enforce-module-boundaries': [
         'error',
         {
@@ -96,6 +97,7 @@ export default defineConfig(
           ],
         },
       ],
+      '@stylistic/curly-newline': 'off',
       'import-x/no-cycle': 'error',
       'import-x/first': 'error',
       'import-x/exports-last': 'error',
@@ -112,25 +114,29 @@ export default defineConfig(
             'object',
             'type',
           ],
-          alphabetize: { order: 'asc' },
+          alphabetize: {order: 'asc'},
+        },
+      ],
+      'unicorn/prevent-abbreviations': [
+        'error',
+        {
+          ignore: [String.raw`tsconfig\.lib(\.prod)?$`],
         },
       ],
     },
   },
   {
-    files: ['**/*.ts'],
-    extends: [
-      ...tseslint.configs.recommendedTypeChecked,
-      importX.flatConfigs.typescript,
-    ],
-    languageOptions: {
-      parserOptions: {
-        projectService: true,
-      },
-    },
+    files: ['**/*.json'],
     rules: {
-      '@typescript-eslint/consistent-type-imports': 'error',
-      '@typescript-eslint/prefer-readonly': 'error',
+      '@nx/dependency-checks': [
+        'error',
+        {
+          ignoredFiles: ['{projectRoot}/eslint.config.mjs'],
+        },
+      ],
+    },
+    languageOptions: {
+      parser: jsoncParser,
     },
   },
 );

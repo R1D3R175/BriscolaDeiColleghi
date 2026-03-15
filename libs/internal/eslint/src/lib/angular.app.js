@@ -1,15 +1,10 @@
-import nx from '@nx/eslint-plugin';
-import angular from 'angular-eslint';
-import { defineConfig, globalIgnores } from 'eslint/config';
+import {defineConfig, globalIgnores} from 'eslint/config';
 import storybook from 'eslint-plugin-storybook';
-import baseConfig from './base.js';
+import angularBaseConfig from './angular.js';
 
 export default defineConfig(
-  globalIgnores(['!.storybook'], 'Include Storybook Directory'),
-  ...baseConfig,
+  angularBaseConfig,
   {
-    files: ['**/*.ts'],
-    extends: [...nx.configs['flat/angular'], angular.configs.tsRecommended],
     rules: {
       '@angular-eslint/directive-selector': [
         'error',
@@ -29,20 +24,9 @@ export default defineConfig(
       ],
     },
   },
-  {
-    files: ['**/*.html'],
-    extends: [
-      ...nx.configs['flat/angular-template'],
-      angular.configs.templateRecommended,
-      angular.configs.templateAccessibility,
-    ],
-  },
+  globalIgnores(['!.storybook'], 'Include Storybook Directory'),
   {
     files: ['**/*.stories.ts', '.storybook/**/*.ts'],
-    // eslint-disable-next-line import-x/no-named-as-default-member
-    extends: [...storybook.configs['flat/recommended']],
-    rules: {
-      'storybook/no-uninstalled-addons': 'off',
-    },
+    extends: [storybook.configs['flat/recommended']],
   },
 );

@@ -1,7 +1,7 @@
 /** @type {import("stylelint").Config} */
 export default {
-  "extends": ["stylelint-config-standard-scss"],
-  "rules": {
-    "no-empty-source": null
-  }
+  extends: ['stylelint-config-standard-scss', 'stylelint-prettier/recommended'],
+  rules: {
+    'no-empty-source': undefined,
+  },
 };

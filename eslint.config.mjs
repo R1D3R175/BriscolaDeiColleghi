@@ -1,1 +1,1 @@
-export { baseConfig as default } from '@briscola-dei-colleghi/eslint';
+export {baseConfig as default} from '@briscola-dei-colleghi/eslint';

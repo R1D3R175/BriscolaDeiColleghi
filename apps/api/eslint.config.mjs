@@ -1,17 +1,4 @@
-import { baseConfig } from '@briscola-dei-colleghi/eslint';
-import { defineConfig } from 'eslint/config';
+import {defineConfig} from 'eslint/config';
+import {nestConfig} from '@briscola-dei-colleghi/eslint';
 
-export default defineConfig([
-  ...baseConfig,
-  {
-    files: ['**/*.js', '**/*.ts'],
-    rules: {
-      'unicorn/prefer-module': 'off',
-      'unicorn/prefer-top-level-await': 'off',
-      '@typescript-eslint/no-require-imports': [
-        'error',
-        { allowAsImport: true },
-      ],
-    },
-  },
-]);
+export default defineConfig(nestConfig);

@@ -1,4 +1,7 @@
-import { angularAppConfig } from '@briscola-dei-colleghi/eslint';
-import { defineConfig } from 'eslint/config';
+import {defineConfig, globalIgnores} from 'eslint/config';
+import {angularAppConfig} from '@briscola-dei-colleghi/eslint';
 
-export default defineConfig([...angularAppConfig]);
+export default defineConfig(
+  globalIgnores(['**/index.html'], 'Ignore app index.html'),
+  angularAppConfig,
+);
