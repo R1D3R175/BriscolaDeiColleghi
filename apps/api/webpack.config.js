@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { NxAppWebpackPlugin } from '@nx/webpack/app-plugin.js';
+import {NxAppWebpackPlugin} from '@nx/webpack/app-plugin.js';
 
 export default {
   output: {
