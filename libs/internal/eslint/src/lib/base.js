@@ -1,20 +1,38 @@
 import eslint from '@eslint/js';
 import nx from '@nx/eslint-plugin';
-import stylistic from '@stylistic/eslint-plugin';
 import {defineConfig} from 'eslint/config';
-import xoSpaceConfig from 'eslint-config-xo-space';
+import xoTypescriptSpaceConfig from 'eslint-config-xo-typescript/space';
 import {importX} from 'eslint-plugin-import-x';
 import prettierRecommendedConfig from 'eslint-plugin-prettier/recommended';
 import unicorn from 'eslint-plugin-unicorn';
 import * as jsoncParser from 'jsonc-eslint-parser';
 import tseslint from 'typescript-eslint';
+import {removePluginDefinitions} from './utilities.js';
 
 export default defineConfig(
+  eslint.configs.recommended,
+  tseslint.configs.recommended,
   nx.configs['flat/base'],
   nx.configs['flat/javascript'],
   nx.configs['flat/typescript'],
-  eslint.configs.recommended,
-  tseslint.configs.recommended,
+  importX.flatConfigs.recommended,
+  importX.flatConfigs.typescript,
+  unicorn.configs.all,
+  prettierRecommendedConfig,
+  {
+    files: ['**/*.{js,cjs,mjs,ts,cts,mts}'],
+    extends: [
+      removePluginDefinitions(xoTypescriptSpaceConfig, ['@typescript-eslint']),
+    ],
+    rules: {
+      '@stylistic/curly-newline': 'off',
+      '@stylistic/function-paren-newline': ['error', 'multiline-arguments'],
+    },
+  },
+  {
+    files: ['**/*.{js,cjs,mjs}'],
+    extends: [tseslint.configs.disableTypeChecked],
+  },
   {
     files: ['**/*.{ts,cts,mts}'],
     extends: [tseslint.configs.recommendedTypeChecked],
@@ -24,15 +42,7 @@ export default defineConfig(
       },
     },
   },
-  xoSpaceConfig(),
-  prettierRecommendedConfig,
-  unicorn.configs.all,
-  importX.flatConfigs.recommended,
-  importX.flatConfigs.typescript,
   {
-    plugins: {
-      '@stylistic': stylistic,
-    },
     rules: {
       'no-unused-vars': [
         'error',
@@ -97,7 +107,6 @@ export default defineConfig(
           ],
         },
       ],
-      '@stylistic/curly-newline': 'off',
       'import-x/no-cycle': 'error',
       'import-x/first': 'error',
       'import-x/exports-last': 'error',

@@ -10,6 +10,9 @@ export default defineConfig(
   {
     files: ['**/*.spec.ts'],
     extends: [vitest.configs.recommended, vitest.configs.env],
+    rules: {
+      '@typescript-eslint/no-unsafe-type-assertion': 'off',
+    },
   },
   {
     rules: {

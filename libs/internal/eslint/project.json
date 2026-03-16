@@ -5,5 +5,9 @@
   "projectType": "library",
   "tags": ["type:utility", "scope:internal"],
   "// targets": "to see all targets run: nx show project eslint --web",
-  "targets": {}
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
 }
