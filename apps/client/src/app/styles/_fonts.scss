@@ -1,79 +1,82 @@
 @font-face {
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
-    font-weight: 100 900;
-    font-optical-sizing: auto;
-    font-variation-settings: "wdth" 100;
-    font-display: swap;
-    src: url("/fonts/Roboto-VariableFont_wdth,wght.woff2") format("woff2");
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 100 900;
+  font-optical-sizing: auto;
+  font-variation-settings: 'wdth' 100;
+  font-display: swap;
+  src: url('/fonts/Roboto-VariableFont_wdth,wght.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: "Roboto Italic", sans-serif;
-    font-style: italic;
-    font-weight: 100 900;
-    font-optical-sizing: auto;
-    font-variation-settings: "wdth" 100;
-    font-display: swap;
-    src: url("/fonts/Roboto-VariableFont_wdth,wght.woff2") format("woff2");
+  font-family: 'Roboto Italic', sans-serif;
+  font-style: italic;
+  font-weight: 100 900;
+  font-optical-sizing: auto;
+  font-variation-settings: 'wdth' 100;
+  font-display: swap;
+  src: url('/fonts/Roboto-VariableFont_wdth,wght.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: "Material Symbols";
-    font-style: normal;
-    src: url("/fonts/MaterialSymbolsRounded-VariableFont_FILL,GRAD,opsz,wght.woff2") format("woff2");
+  font-family: 'Material Symbols';
+  font-style: normal;
+  src: url('/fonts/MaterialSymbolsRounded-VariableFont_FILL,GRAD,opsz,wght.woff2')
+    format('woff2');
 }
 
 @font-face {
-    font-family: "Material Symbols Outlined";
-    font-style: normal;
-    src: url("/fonts/MaterialSymbolsRounded-VariableFont_FILL,GRAD,opsz,wght.woff2") format("woff2");
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  src: url('/fonts/MaterialSymbolsRounded-VariableFont_FILL,GRAD,opsz,wght.woff2')
+    format('woff2');
 }
 
 @font-face {
-    font-family: "Material Symbols Sharp";
-    font-style: normal;
-    src: url("/fonts/MaterialSymbolsSharp-VariableFont_FILL,GRAD,opsz,wght.woff2") format("woff2");
+  font-family: 'Material Symbols Sharp';
+  font-style: normal;
+  src: url('/fonts/MaterialSymbolsSharp-VariableFont_FILL,GRAD,opsz,wght.woff2')
+    format('woff2');
 }
 
 .material-symbols {
-    font-family: "Material Symbols";
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
+  font-family: 'Material Symbols';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  overflow-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
 }
 
 .material-symbols-outlined {
-    font-family: "Material Symbols Outlined";
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  overflow-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
 }
 
 .material-symbols-sharp {
-    font-family: "Material Symbols Sharp";
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
+  font-family: 'Material Symbols Sharp';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  overflow-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
 }
