@@ -30,14 +30,7 @@ jobs:
       - name: Nx set SHAs
         uses: nrwl/nx-set-shas@v5
 
-      - name: Run Nx affected (PR)
-        if: github.event_name == 'pull_request'
-        run: >
-          pnpx nx affected
-          --target=${{ matrix.target }}
-
-      - name: Run Nx affected (push)
-        if: github.event_name == 'push'
+      - name: Run Nx affected
         run: >
           pnpx nx affected
           --target=${{ matrix.target }}
