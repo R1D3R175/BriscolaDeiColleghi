@@ -6,7 +6,7 @@ const nxStylelint = files =>
   `pnpx nx affected --target=stylelint --fix --files=${files.join(',')}`;
 
 export default {
-  lintedFiles: nxLint,
+  [eslintLintedFiles]: nxLint,
   ['{apps,libs}/**/' + eslintLintedFiles]: nxLint,
   ['{apps,libs}/**/' + stylelintLintedFiles]: nxStylelint,
 };
