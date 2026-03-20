@@ -1,0 +1,21 @@
+name: Setup Node + pnpm
+description: 'Setup Node.js and pnpm for GitHub Actions'
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v6
+      with:
+        fetch-depth: 0
+
+    - uses: pnpm/action-setup@v4
+      with:
+        version: 10
+
+    - uses: actions/setup-node@v6
+      with:
+        node-version: lts/*
+        cache: pnpm
+
+    - run: pnpm install --frozen-lockfile
+      shell: bash

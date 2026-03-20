@@ -1,0 +1,40 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        target: [lint, stylelint]
+
+    steps:
+      - name: Setup
+        uses: ./.github/workflows/setup
+
+      - name: Run Nx affected (PR)
+        if: github.event_name == 'pull_request'
+        run: >
+          pnpx nx affected
+          --target=${{ matrix.target }}
+          --base=${{ github.event.pull_request.base.sha }}
+          --head=${{ github.event.pull_request.head.sha }}
+
+      - name: Run Nx affected (push)
+        if: github.event_name == 'push'
+        run: >
+          pnpx nx affected
+          --target=${{ matrix.target }}
+          --base=HEAD~1
+          --head=HEAD
