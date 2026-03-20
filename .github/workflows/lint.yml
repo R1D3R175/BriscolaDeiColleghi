@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - name: Setup
-        uses: ./.github/workflows/setup
+        uses: ./.github/actions/setup
 
       - name: Run Nx affected (PR)
         if: github.event_name == 'pull_request'
