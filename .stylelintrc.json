@@ -1,0 +1,29 @@
+{
+  "ignoreFiles": ["**/*"],
+  "extends": ["stylelint-prettier/recommended"],
+  "overrides": [
+    {
+      "files": ["**/*.css"],
+      "extends": ["stylelint-config-standard"],
+      "rules": {}
+    },
+    {
+      "files": ["**/*.scss"],
+      "extends": ["stylelint-config-standard-scss"],
+      "rules": {}
+    }
+  ],
+  "rules": {
+    "no-empty-source": null,
+    "font-family-no-missing-generic-family-keyword": [
+      true,
+      {
+        "ignoreFontFamilies": [
+          "Material Symbols",
+          "Material Symbols Outlined",
+          "Material Symbols Sharp"
+        ]
+      }
+    ]
+  }
+}

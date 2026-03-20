@@ -127,6 +127,13 @@
           "buildTarget": "client:build-storybook:ci"
         }
       }
+    },
+    "stylelint": {
+      "executor": "nx-stylelint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/client/**/*.css", "apps/client/**/*.scss"]
+      }
     }
   }
 }
